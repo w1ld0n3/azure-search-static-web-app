@@ -8,6 +8,11 @@ import './AppHeader.css';
 export default function AppHeader() {
   return (
     <header className="header">
+    </header>
+  );
+};
+
+/*
       <nav className="navbar navbar-expand-lg">
         <a className="navbar-brand" href="/">
           <img src={logo} height="50" className="navbar-logo" alt="Microsoft" />
@@ -28,8 +33,5 @@ export default function AppHeader() {
         </div>
 
         <AppHeaderAuth />
-      </nav>
-      
-    </header>
-  );
-};
+     </nav> 
+*/
