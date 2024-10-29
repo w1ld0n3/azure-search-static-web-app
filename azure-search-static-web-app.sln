@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulkInsert", "bulk-insert\BulkInsert.csproj", "{063D54CB-EE0B-4BBF-A6D7-729EEB754D32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "azure-search-function", "api\azure-search-function.csproj", "{7D4ABAF5-80CE-4D0E-8479-AA1B66DAEC04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{063D54CB-EE0B-4BBF-A6D7-729EEB754D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{063D54CB-EE0B-4BBF-A6D7-729EEB754D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{063D54CB-EE0B-4BBF-A6D7-729EEB754D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{063D54CB-EE0B-4BBF-A6D7-729EEB754D32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D4ABAF5-80CE-4D0E-8479-AA1B66DAEC04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4ABAF5-80CE-4D0E-8479-AA1B66DAEC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4ABAF5-80CE-4D0E-8479-AA1B66DAEC04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4ABAF5-80CE-4D0E-8479-AA1B66DAEC04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8C60408-C16A-4F88-9B6F-F36C93A7AAA7}
+	EndGlobalSection
+EndGlobal
