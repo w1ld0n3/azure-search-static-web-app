@@ -53,6 +53,10 @@ namespace WebSearch.Function
             };
             options.Facets.Add("Authors");
             options.Facets.Add("TypeCategory");
+            options.Facets.Add("DetailedType");
+
+            options.Facets.Add("DiseaseCategory");
+            options.Facets.Add("DetailedDisease");
 
             SearchResults<SearchDocument> searchResults = searchClient.Search<SearchDocument>(data.SearchText, options);
 
@@ -94,7 +98,8 @@ namespace WebSearch.Function
 
 
             List<SearchFilter> authorFilters = filters.Where(f => f.field == "Authors").ToList();
-            List<SearchFilter> languageFilters = filters.Where(f => f.field == "TypeCategory").ToList();
+            List<SearchFilter> typeCategoryFilters = filters.Where(f => f.field == "TypeCategory").ToList();
+            List<SearchFilter> detailedTypeFilters = filters.Where(f => f.field == "DetailedType").ToList();
 
             List<string> authorFilterValues = authorFilters.Select(f => f.value).ToList();
 
@@ -104,11 +109,17 @@ namespace WebSearch.Function
                 filterExpressions.Add($"{"Authors"}/any(t: search.in(t, '{filterStr}', ','))");
             }
 
-            List<string> languageFilterValues = languageFilters.Select(f => f.value).ToList();
+            List<string> languageFilterValues = typeCategoryFilters.Select(f => f.value).ToList();
             foreach (var value in languageFilterValues)
             {
                 filterExpressions.Add($"TypeCategory eq '{value}'");
             }
+
+            List<string> detailedTypeFilterValues = detailedTypeFilters.Select(f => f.value).ToList();
+            foreach (var value in detailedTypeFilterValues)
+            {
+                filterExpressions.Add($"DetailedType eq '{value}'");
+            }   
 
             return string.Join(" and ", filterExpressions);
         }

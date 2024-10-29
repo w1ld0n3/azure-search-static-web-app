@@ -62,7 +62,7 @@ namespace WebSearch.Models
         [JsonPropertyName("document")]
         public SearchDocument Document { get; set; }
     }
-    public class BookModel
+    public class PublishModel
     {
         public string UniqueID { get; set; }
 
