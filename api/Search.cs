@@ -51,12 +51,13 @@ namespace WebSearch.Function
                 IncludeTotalCount = true,
                 Filter = CreateFilterExpression(data.Filters)
             };
-            options.Facets.Add("Authors");
+            
             options.Facets.Add("TypeCategory");
             options.Facets.Add("DetailedType");
-
             options.Facets.Add("DiseaseCategory");
             options.Facets.Add("DetailedDisease");
+            options.Facets.Add("Authors");
+
 
             SearchResults<SearchDocument> searchResults = searchClient.Search<SearchDocument>(data.SearchText, options);
 
@@ -101,6 +102,10 @@ namespace WebSearch.Function
             List<SearchFilter> typeCategoryFilters = filters.Where(f => f.field == "TypeCategory").ToList();
             List<SearchFilter> detailedTypeFilters = filters.Where(f => f.field == "DetailedType").ToList();
 
+            List<SearchFilter> diseaseCategoryFilters = filters.Where(f => f.field == "DiseaseCategory").ToList();
+            List<SearchFilter> detailedDiseaseFilters = filters.Where(f => f.field == "DetailedDisease").ToList();
+            
+
             List<string> authorFilterValues = authorFilters.Select(f => f.value).ToList();
 
             if (authorFilterValues.Count > 0)
@@ -120,6 +125,18 @@ namespace WebSearch.Function
             {
                 filterExpressions.Add($"DetailedType eq '{value}'");
             }   
+
+            List<string> diseaseCategoryFilterValues = diseaseCategoryFilters.Select(f => f.value).ToList();
+            foreach (var value in diseaseCategoryFilterValues)
+            {
+                filterExpressions.Add($"DiseaseCategory eq '{value}'");
+            }  
+
+            List<string> detailedDiseaseFilterValues = detailedDiseaseFilters.Select(f => f.value).ToList();
+            foreach (var value in detailedDiseaseFilterValues)
+            {
+                filterExpressions.Add($"DetailedDisease eq '{value}'");
+            }              
 
             return string.Join(" and ", filterExpressions);
         }
